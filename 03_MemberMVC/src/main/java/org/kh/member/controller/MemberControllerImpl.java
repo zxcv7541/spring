@@ -41,6 +41,10 @@ public class MemberControllerImpl implements MemberController{
 		HttpSession session=request.getSession();
 		
 		//3.viewName 리턴
+		//ViewName을 처리할때 주의할점
+		//viewName을 DispatcherServlet에게 돌려줄고 자동으로 처리되도록만들지만 DispatcherServlet에서는 
+		//처리할때 무조건 forword 방식만을 사용함
+		//(sendRedirect는 사용하지 않음)
 		if(m!=null) {
 			session.setAttribute("member", m);
 			return "member/loginSuccess";
