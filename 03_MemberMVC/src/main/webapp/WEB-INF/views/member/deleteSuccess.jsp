@@ -8,8 +8,8 @@
 </head>
 <body>
 <script>
-	alert("로그인 성공");
-	location.href="index.jsp";
+	alert("탈퇴 성공");
+	location.href="/index.jsp";
 </script>
 </body>
 </html>

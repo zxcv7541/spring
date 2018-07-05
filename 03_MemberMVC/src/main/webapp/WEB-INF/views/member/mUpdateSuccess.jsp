@@ -8,8 +8,8 @@
 </head>
 <body>
 <script>
-	alert("로그인 성공");
-	location.href="index.jsp";
+	alert("회원 정보 변경 성공");
+	location.href="/myInfo.do";
 </script>
 </body>
 </html>

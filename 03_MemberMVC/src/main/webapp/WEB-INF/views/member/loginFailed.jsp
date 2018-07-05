@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-로그인 실패
+<script>
+alert("로그인 실패");
+	location.href="index.jsp";
+	</script>
 </body>
 </html>
