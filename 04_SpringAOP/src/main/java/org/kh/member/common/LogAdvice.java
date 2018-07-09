@@ -5,14 +5,38 @@ import java.util.Date;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Service;
 
+@Service
+@Aspect
 public class LogAdvice {
+	//포인트컷 생성
+	@Pointcut("execution(* org.kh.member.model.service..*ServiceImpl.*(..))")
+	public void allPointcut() {}
+	
+	@Pointcut("execution(int org.kh.member.model.service.MemberServiceImpl.*Member(org.kh.member.model.vo.Member))")
+	public void transactionPointcut() {}
+	
+	@Pointcut("execution(* org.kh.member.model.service..*ServiceImpl.*(..))")
+	public void aroundLog() {}
+	
+	@Before("allPointcut()")
 	public void printLog() {
 		System.out.println("[공통로그-LogAdvice] : 비즈니스 로직 수행 전 로그 기록입니다.");
 	}
+	
+	@After("transactionPointcut()")
 	public void printTransactionLog() {
 		System.out.println("[트랜잭션 로그-LogAdvice] : 트랜잭션 처리 로그");
 	}
+	
+	
+	@Around("aroundLog()")
 	public Object aroundLog(ProceedingJoinPoint pjp)throws Throwable {
 		
 		long now=System.currentTimeMillis();
@@ -34,6 +58,8 @@ public class LogAdvice {
 		System.out.println("===기타정보===");
 		Signature sig=pjp.getSignature();
 		System.out.println(sig.getName());
+		
+		
 		
 		return returnObj;
 	}

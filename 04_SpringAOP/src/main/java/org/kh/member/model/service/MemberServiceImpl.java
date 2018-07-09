@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.kh.member.common.Log4jAdvice;
 import org.kh.member.common.LogAdvice;
 import org.kh.member.model.dao.MemberDAOImpl;
@@ -31,13 +32,13 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public Member selectOneMember(Member vo) {
-		System.out.println("비즈니스 로직 호출");
+	
 		Member m=memberDAO.selectOneMember(jdbcTemplate,vo);
 		return m;
 	}
 
 	public int updateMember(Member vo) {
-		System.out.println("비즈니스 로직 호출");
+		
 
 		int result=memberDAO.updateMember(jdbcTemplate,vo);
 		
@@ -45,21 +46,21 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	public int insertMember(Member vo) {
-		System.out.println("비즈니스 로직 호출");
+	
 
 		int result=memberDAO.insertMember(jdbcTemplate,vo);
 		return result;
 	}
 
 	public int deleteMember(String userId) {
-		System.out.println("비즈니스 로직 호출");
+	
 
 		int result=memberDAO.deleteMember(jdbcTemplate,userId);
 		return result;
 	}
 
 	public ArrayList<Member> memberAll() {
-		System.out.println("비즈니스 로직 호출");
+	
 
 		ArrayList<Member> list=memberDAO.memberAll(jdbcTemplate);
 		return list;
