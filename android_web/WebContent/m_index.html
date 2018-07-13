@@ -101,6 +101,30 @@ div{
 			alert("Not viewing in webView!");
 		}
 	}
+	function btn9(){
+		
+		if(typeof Android !=="undefined" && Android !==null){
+			Android.func9();
+		}else{
+			alert("Not viewing in webView!");
+		}
+	}
+	function btn10(){
+		
+		if(typeof Android !=="undefined" && Android !==null){
+			Android.func10();
+		}else{
+			alert("Not viewing in webView!");
+		}
+	}
+		function btn11(){
+		
+		if(typeof Android !=="undefined" && Android !==null){
+			Android.func11();
+		}else{
+			alert("Not viewing in webView!");
+		}
+	}
 
 </script>
 
@@ -137,11 +161,17 @@ div{
 			<input style="border:2px solid red; width:100%;" type="text" id="text3">
 			<button onclick="btn8();">TTS기능 작동</button>
 		</div>
-		<div></div>
+		<div>
+		<button style="width:100%; height:100%;" onClick="btn9();">STT작동 (Toast출력)</button>
+		</div>
 	</div>
 	<div class="contents">
-		<div></div>
-		<div></div>
+		<div>
+			<button style="width:100%; height:100%;" onClick="btn10();">STT작동 (음성인식)</button>
+		</div>
+		<div>
+		<button style="width:100%; height:100%;" onClick="btn11();">STT작동 (PaPaGo)</button>
+		</div>
 	</div>
 </div>
 </body>
